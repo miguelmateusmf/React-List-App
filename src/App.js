@@ -15,6 +15,7 @@ const App = () => {
   return (
     <div className='container'>
       <Header />
+      completar
     </div>
 
 /*<body>
@@ -33,7 +34,6 @@ const App = () => {
   <div class="box1">One</div>
   <div class="box2">1111111111111111111111111111111111111</div>
   <div class="box2">2222222222222222222222222222222222222</div>
-  <div class="box2">3333333333333333333333333333333333333</div>
   <div class="box3">three</div>
   
 </div>
