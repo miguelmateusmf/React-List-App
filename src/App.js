@@ -1,45 +1,50 @@
-import { buildQueries } from '@testing-library/react';
+import { useState } from 'react'
 import Header from './components/Header';
-
-const styles = {
-  transition: 'all 1s ease-out'
-}
+import Tasks from './components/Tasks';
 
 const App = () => {
+  const [tasks, setTasks] = useState([
+    {
+        id: 1,
+        text: 'Doctors Appointment',
+        day: 'Feb 5th at 2:30pm',
+        reminder: true,
+    },
+    {
+        id: 2,
+        text: 'Meeting at School',
+        day: 'Feb 6th at 1:30pm',
+        reminder: true,
+    },
+    {
+        id: 3,
+        text: 'Food Shopping',
+        day: 'Feb 5th at 2:30pm',
+        reminder: false,
+    }
+])
+
   //const name = 'Brad'
   //const x = true
       //<h1>Hello from React</h1>
       //<h2>Hello {name} {1+1}</h2>
-  
+
+// delete task
+const deleteTask = (id) => {
+  setTasks(tasks.filter((task) => task.id === id))
+}
+
+//toggle reminder
+const toggleReminder = (id) => {
+  setTasks(tasks.map((task) => task.id == true))
+}
 
   return (
     <div className='container'>
       <Header />
-      completar
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks To Show'}
     </div>
-
-/*<body>
-<div className='parentConfig'>
-      <div className='childConfig'>
-        <div className='childConfig2'>
-          <div className='childConfig3'>
-      </div>
-      </div>
-      </div>
-      
-      
-    </div>
-    
-    <div class="wrapper">
-  <div class="box1">One</div>
-  <div class="box2">1111111111111111111111111111111111111</div>
-  <div class="box2">2222222222222222222222222222222222222</div>
-  <div class="box3">three</div>
-  
-</div>
-</body>   */
   )
-
   }
 
 export default App
